@@ -1,0 +1,33 @@
+#MailDialog{
+    width: 161.781px;
+	position:absolute;
+	right:0;
+	margin-right:7em;
+	padding:0.5em;
+	background:#eee;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	border-bottom-right-radius:1em;
+	border-bottom-left-radius:1em;
+	z-index:100;
+}
+#shareErrorMsg{
+	position:absolute;
+	right:0;
+	margin-right:7em;
+	padding:0.5em;
+	background:#eee;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	border-bottom-right-radius:1em;
+	border-bottom-left-radius:1em;
+	z-index:100;
+}
+
+.mailexternal{
+	margin-top:1.5em;
+	margin-right:9em;
+	top:1em;
+}

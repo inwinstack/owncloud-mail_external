@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<info>
+    <id>mail_external</id>
+    <name>Mail External</name>
+    <description></description>
+    <licence>AGPL</licence>
+    <author>dino.p</author>
+    <version>0.0.1</version>
+    <namespace>Mail_External</namespace>
+    <category>other</category>
+    <dependencies>
+        <owncloud min-version="8.1" />
+    </dependencies>
+</info>
