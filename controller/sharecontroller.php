@@ -44,7 +44,6 @@ class ShareController extends Controller {
             else {
                 $password = $shareWith['password'];
             }
-            file_put_contents("test.txt", $passwordChanged); 
             $token = \OCP\Share::shareItem(
                 $itemType,
                 $itemSource,
