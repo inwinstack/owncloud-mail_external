@@ -19,6 +19,6 @@
  */
 return [
     'routes' => [
-	   ['name' => 'share#shareLinks', 'url' => 'shareLinks', 'verb' => 'POST'],
+	   ['name' => 'profile#getUserEmail', 'url' => 'getUserEmail', 'verb' => 'GET'],
     ]
 ];
