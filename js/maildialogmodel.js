@@ -84,9 +84,9 @@
                     files[i].type = 'folder';
                 }
                 sharefiles[i] = {
-                    itemType: files[i].type,
-                    itemSource: files[i].id,
-                    itemSourceName: files[i].name,
+                    type: files[i].type,
+                    id: files[i].id,
+                    name: files[i].name,
                     permissions: sharePermissions
                 };
             }
@@ -159,24 +159,34 @@
 			};
 
             shareUrl = window.location.protocol + '//' + window.location.host + OC.generateUrl('/s/');
-            
-            $.ajax({
+
+            var getShareToken = $.ajax({
                 method:'POST',
-                url:  OC.generateUrl('/apps/mail_external/shareLinks'),
+                url: OC.generateUrl('/apps/files_sharing_ext/shareLinks'),
                 data: {
                     data : data,
-                    shareWith : shareWith,
-                    expirationDate : attributes.expiration 
+                    password : shareWith,
+                    expiration : attributes.expiration 
                 },
                 success: function(response) {
                     $.each(response, function(key, value){
-                        if(key != 'email'){
                             response[key] = shareUrl + value;
-                        }
                     })
-                    model.OpenWindowWithPost(mailUrl, response);
                 },
             });
+
+            var getUserEmail = $.ajax({
+                method:'GET',
+                url: OC.generateUrl('/apps/mail_external/getUserEmail'),
+            });
+
+            $.when(getUserEmail, getShareToken).done(function (response1, response2) {
+                var response = [];
+                response.push(response1[0]);
+                response.push(response2[0]);
+                model.OpenWindowWithPost(mailUrl, response);
+            });
+                    
             this.setPassword('');
             this.setExpirationDate('');
         }
