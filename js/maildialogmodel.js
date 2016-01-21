@@ -165,7 +165,7 @@
                 url: OC.generateUrl('/apps/files_sharing_ext/shareLinks'),
                 data: {
                     data : data,
-                    password : shareWith,
+                    passwordInfo : shareWith,
                     expiration : attributes.expiration 
                 },
                 success: function(response) {
